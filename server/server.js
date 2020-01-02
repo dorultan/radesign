@@ -12,9 +12,8 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
-
-console.log(process.env)
-app.set("PORT", process.env.PORT);
+console.log(process)
+app.set("PORT", process.env.PORT || 8080);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -22,8 +21,6 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use(passport.initialize());
-
-// app.use(passport.session());
 
 app.use(express.static(path.resolve(process.cwd(), 'dist')));
 
