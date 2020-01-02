@@ -12,7 +12,7 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
-console.log(process);
+
 app.set("PORT", process.env.PORT || 8080);
 app.use(cookieParser());
 app.use(bodyParser.json());

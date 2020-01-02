@@ -63,7 +63,7 @@ export const CreateProject = (values) => {
 
 export const FetchProjects = () => {
 
-  return privateRequest().get('/api/projects');
+  return axios.get('/api/projects');
 }
 
 export const FetchProject = (project_id) => {
