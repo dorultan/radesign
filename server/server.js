@@ -12,6 +12,7 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
+console.log(process);
 console.log(process.env.PORT + " IS THE PORT ======================================================")
 console.log(process.env.$PORT + " IS THE PORT ======================================================")
 console.log(process.env)
