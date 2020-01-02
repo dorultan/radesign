@@ -30,18 +30,18 @@ const serverConfig = {
 		new webpack.EvalSourceMapDevToolPlugin(),
 		new CleanWebpackPlugin('./dist'),
 		new StartServerPlugin('server.js'),
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.DefinePlugin({
-            "process.env": {
-                "BUILD_TARGET": JSON.stringify('server'),
-								"PORT": process.env.PORT,
-								"DB_USERNAME":process.env.DB_USERNAME,
-								"DB_PASSWORD":process.env.DB_PASSWORD,
-								"DB_HOST":process.env.DB_HOST,
-								"DB_NAME":process.env.DB_NAME
-            }
-        }),
-        new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.DefinePlugin({
+        "process.env": {
+            "BUILD_TARGET": JSON.stringify('server'),
+						"PORT": JSON.stringify(process.env.PORT),
+						"DB_USERNAME":  JSON.stringify(process.env.DB_USERNAME),
+						"DB_PASSWORD":  JSON.stringify(process.env.DB_PASSWORD),
+						"DB_HOST":  JSON.stringify(process.env.DB_HOST),
+						"DB_NAME":  JSON.stringify(process.env.DB_NAME)
+        }
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
 		new ProgressBarPlugin(),
 		...sharedConfig.plugins
 	]
