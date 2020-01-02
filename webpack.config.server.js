@@ -33,7 +33,12 @@ const serverConfig = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin({
             "process.env": {
-                "BUILD_TARGET": JSON.stringify('server')
+                "BUILD_TARGET": JSON.stringify('server'),
+								"PORT": process.env.PORT,
+								"DB_USERNAME":process.env.DB_USERNAME,
+								"DB_PASSWORD":process.env.DB_PASSWORD,
+								"DB_HOST":process.env.DB_HOST,
+								"DB_NAME":process.env.DB_NAME
             }
         }),
         new webpack.NoEmitOnErrorsPlugin(),
