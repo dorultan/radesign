@@ -18,7 +18,7 @@ const serverConfig = {
 		filename: 'server.js',
 		publicPath: sharedConfig.publicPath
 	},
-	watch: true,
+	watch: process.NODE_ENV === 'production' ? false : true,
 	watchOptions: {
 	    aggregateTimeout: 300,
 	    poll: 1000
