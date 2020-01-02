@@ -39,7 +39,7 @@ const serverConfig = {
         }),
         new webpack.NoEmitOnErrorsPlugin(),
 		new ProgressBarPlugin(),
-		new DotenvWebpack(),
+		// new DotenvWebpack(),
 		...sharedConfig.plugins
 	]
 };

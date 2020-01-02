@@ -13,7 +13,7 @@ import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
 
-app.set("PORT", process.env.PORT || 3000);
+app.set("PORT", process.env.PORT);
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
