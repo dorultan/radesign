@@ -5,7 +5,6 @@ const StartServerPlugin = require('start-server-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
-const DotenvWebpack = require('dotenv-webpack');
 
 const serverConfig = {
 	name: 'server',
@@ -39,7 +38,6 @@ const serverConfig = {
         }),
         new webpack.NoEmitOnErrorsPlugin(),
 		new ProgressBarPlugin(),
-		// new DotenvWebpack(),
 		...sharedConfig.plugins
 	]
 };
