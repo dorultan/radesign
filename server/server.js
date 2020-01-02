@@ -12,7 +12,8 @@ import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
-console.log(process)
+console.log(process.env.PORT + " IS THE PORT ======================================================")
+console.log(process.PORT + " IS THE PORT ======================================================")
 app.set("PORT", process.env.PORT || 8080);
 app.use(cookieParser());
 app.use(bodyParser.json());
