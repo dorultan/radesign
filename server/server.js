@@ -13,7 +13,9 @@ import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
 console.log(process.env.PORT + " IS THE PORT ======================================================")
-console.log(process.env + " IS THE ENV ======================================================")
+console.log(process.env.$PORT + " IS THE PORT ======================================================")
+console.log(process.env)
+console.log("ENV=======================================================")
 app.set("PORT", process.env.PORT || 8080);
 app.use(cookieParser());
 app.use(bodyParser.json());
