@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+const DotenvWebpack = require('dotenv-webpack');
 
 const sharedConfig = {
 	mode: process.env.NODE_ENV || 'development',
@@ -47,6 +48,7 @@ const sharedConfig = {
 			chunkFilename: '[id].css'
 		}),
         new webpack.HotModuleReplacementPlugin(),
+				new DotenvWebpack()
 
 	]
 }
