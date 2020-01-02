@@ -13,6 +13,7 @@ import cookieParser from 'cookie-parser';
 import config from '../config';
 let app = express();
 
+console.log(process.env)
 app.set("PORT", process.env.PORT);
 app.use(cookieParser());
 app.use(bodyParser.json());
