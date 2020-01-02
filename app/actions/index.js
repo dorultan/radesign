@@ -279,17 +279,11 @@ export const updateUserAvatar = (id, avatar) => {
 }
 
 export const fetchProjects = () => {
+	const payload = FetchProjects();
 
-	return (dispatch) => {
-
-		setTimeout(() => {
-			const payload = FetchProjects();
-
-			dispatch({
-				type: FETCH_PROJECTS,
-				payload: payload
-			})
-		}, 1000)
+	return {
+		type: FETCH_PROJECTS,
+		payload: payload
 	}
 }
 

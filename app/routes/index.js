@@ -4,12 +4,18 @@ import DashboardContainer from '../containers/dashboard.container';
 import Project from '../containers/project.container';
 import Projects from '../containers/projects.container';
 import Galery from '../containers/galery.container';
+import ProjectView from '../containers/projectView.container';
 
 const routes = [
   {
     path: '/',
     component: Home,
     exact: true
+  },
+  {
+    path: '/projects/:project_id',
+    exact: true,
+    component: ProjectView
   },
 
   {
