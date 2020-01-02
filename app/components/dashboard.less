@@ -1,0 +1,71 @@
+@import '../styles/colors.less';
+@import "../styles/sizes.less";
+
+.dashboard {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  .sidebar {
+    min-width: 250px;
+    background: @sidebar_background;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    .sidebar-header {
+      width: 100%;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        color: rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .sidebar-nav {
+      margin: 0;
+      padding: 0;
+
+      li {
+        width: 100%;
+        text-align: center;
+
+        a {
+          display: block;
+          color: #fff;
+          padding: 10px 0;
+          background: @sidebar_links_background;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .dashboard-section {
+    margin: 0;
+    padding: 0 10px;
+    height: 100%;
+    width: 100%;
+    background: @dashboard_section_background;
+    overflow: auto;
+
+    .dashboard__nav {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 50px;
+      border-bottom: 2px solid #fff;
+    }
+  }
+}
