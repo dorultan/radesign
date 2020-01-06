@@ -30,7 +30,7 @@ class GaleryComponent extends PureComponent {
   removeImage(path) {
     const uid = this.props.match.params.uid;
     const data = {
-      uid: id,
+      uid: uid,
       path: path
     }
 

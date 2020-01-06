@@ -166,7 +166,7 @@ const projectsController = {
 
         return res.status(500).json(err);
 			}
-      console.log(file);
+      
       Project
 
       .create({
