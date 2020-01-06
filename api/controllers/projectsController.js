@@ -166,7 +166,7 @@ const projectsController = {
 
         return res.status(500).json(err);
 			}
-
+      console.log(file);
       Project
 
       .create({
@@ -236,7 +236,7 @@ const projectsController = {
             if(err) {
               return res.status(404).json({message: "Can't remove image."})
             }
-            
+
             return res.status(200).json(data);
           })
         })
