@@ -166,7 +166,9 @@ const projectsController = {
         console.log(err);
         return res.status(500).json(err);
 			}
-
+      console.log(err);
+      console.log(file)
+      console.log(req.file)
       if(file) {
         Project
 
