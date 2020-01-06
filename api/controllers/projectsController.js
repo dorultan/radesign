@@ -1,5 +1,7 @@
 import Project from '../models/project';
 import multer from 'multer';
+import multerS3 from 'multer-s3';
+import aws from 'aws-sdk';
 import fs from 'fs';
 
 const replaceSpaceFromString = (string) => {
@@ -11,49 +13,45 @@ const replaceSpaceFromString = (string) => {
   return str;
 }
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'api/uploads/')
-  },
 
-  filename: function (req, file, cb) {
-    let filename = replaceSpaceFromString(file.originalname);
-    cb(null, filename);
-  }
-});
+aws.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  region: 'eu-west-2'
+})
+const s3 = new aws.S3()
 
-const storeWithMetaImage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, 'api/uploads');
-  },
-  filename: function(req, file, cb) {
-    let filename = replaceSpaceFromString(file.originalname);
-
-
-
-    cb(null, 'meta-image-' + filename)
+const storage = multerS3({
+  s3: s3,
+  bucket: 'radesign',
+  acl: 'public-read',
+  key: function(req, file, cb) {
+    cb(null, file.originalname);
   }
 })
 
+const upload = multer({storage: storage}).single('image');
+
 
 const deleteFiles = (arr, cb) => {
+  const params = {
+    Delete: {
+      Objects: [
 
-  arr.forEach((filePath, idx) => {
-
-    fs.unlink(filePath, (err) => {
-
-      if(err) {
-        cb(err);
-        return;
-      } else if(idx === arr.length -1) {
-          cb(null);
-      }
+      ],
+      Quiet: false
+    },
+    Bucket: 'radesign'
+  }
+  arr.forEach((fileUrl, idx) => {
+    let key = fileUrl.split('/');
+    key = key[key.length -1];
+    params.Delete.Objects.push({
+      Key: key
     })
   })
+  s3.deleteObjects(params, cb)
 }
-
-const upload = multer({storage: storage}).single('image');
-const uploadWithMetaImage = multer({storage: storeWithMetaImage}).single('image');
 
 const projectsController = {
   get(req, res, next) {
@@ -110,7 +108,7 @@ const projectsController = {
       .findOneAndUpdate({uid: uid},
       {
         $push: {
-          uploads: file.path
+          uploads: file.location
         }
       },
       {
@@ -132,7 +130,7 @@ const projectsController = {
     const path = req.body.path;
     Project
 
-    .findOneAndUpdate(id,
+    .findOneAndUpdate({uid: uid},
     {
       $pull: {
         uploads: path
@@ -144,12 +142,14 @@ const projectsController = {
     })
 
     .exec((err, data) => {
+      let key = path.split('/');
+      key = key[key.length -1];
 
       if(err) {
         return res.status(400).json({error: err})
       }
 
-      fs.unlink(path, (err) => {
+      s3.deleteObject({Bucket: 'radesign', Key: key}, (err, success) => {
         if(err) {
           return res.status(400).json({error: err})
         }
@@ -160,20 +160,17 @@ const projectsController = {
 
   create(req, res) {
 
-    uploadWithMetaImage(req, res, function(err) {
+    upload(req, res, function(err) {
 			const file = req.file;
 			if(err instanceof multer.MulterError) {
-        console.log(err);
         return res.status(500).json(err);
 			}
-      console.log(err);
-      console.log(file)
-      console.log(req.file)
+
       if(file) {
         Project
 
         .create({
-          imageUrl: file.path,
+          imageUrl: file.location,
           description: req.body.description,
           name: req.body.name,
           uid: replaceSpaceFromString(req.body.name),
@@ -217,7 +214,7 @@ const projectsController = {
 
   updateImage(req, res, next) {
 
-    uploadWithMetaImage(req, res, function(err) {
+    upload(req, res, function(err) {
       const file = req.file;
       const uid = req.body.uid;
       const body = req.body;
@@ -226,7 +223,7 @@ const projectsController = {
         Project
         .findOneAndUpdate({uid: uid},
           {
-            imageUrl: file.path,
+            imageUrl: file.location,
             description: body.description,
             name: body.name,
             tag: body.tag,
@@ -235,11 +232,13 @@ const projectsController = {
           }, {new: true})
 
         .exec((err, data) => {
+          let key = body.oldImagePath.split('/');
+          key = key[key.length -1];
           if(err) {
             return res.status(404).json({message: 'The project is not updated.'})
           }
 
-          fs.unlink(body.oldImagePath, (err) => {
+          s3.deleteObject({Bucket: 'radesign', Key: key}, (err, success) => {
             if(err) {
               return res.status(404).json({message: "Can't remove image."})
             }
@@ -271,11 +270,11 @@ const projectsController = {
       }
       images.push(data.imageUrl);
       images = images.concat(data.uploads);
-      deleteFiles(images, (err) => {
+
+      deleteFiles(images, (err, success) => {
         if(err) {
           return res.status(405).json({message: "Can't remove files.", error: err})
         }
-
         return res.status(200).json(data);
       })
 

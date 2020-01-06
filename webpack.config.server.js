@@ -41,7 +41,9 @@ const serverConfig = {
 						"DB_USERNAME":  JSON.stringify(process.env.DB_USERNAME),
 						"DB_PASSWORD":  JSON.stringify(process.env.DB_PASSWORD),
 						"DB_HOST":  JSON.stringify(process.env.DB_HOST),
-						"DB_NAME":  JSON.stringify(process.env.DB_NAME)
+						"DB_NAME":  JSON.stringify(process.env.DB_NAME),
+						"AWS_ACCESS_KEY_ID": JSON.stringify(process.env.AWS_ACCESS_KEY_ID),
+						"AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY)
         }
     }),
 

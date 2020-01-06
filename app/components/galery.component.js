@@ -59,7 +59,7 @@ class GaleryComponent extends PureComponent {
              return (
                <div className="gallery-image" key={key}>
                  <button type="button"  onClick={() => {this.removeImage(img)}} className="remove-image"><FontAwesomeIcon icon={faTimes}/></button>
-                 <img src={window.origin + '/' + img}/>
+                 <img src={img}/>
                </div>
              )
            })

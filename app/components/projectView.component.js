@@ -9,15 +9,11 @@ import './projectView.less';
 
 
 const ProjectViewComponent = (props) => {
-  let imageUrl = `${window.origin}\\${props.project.imageUrl}`;
-  imageUrl = imageUrl.replace('\\', '/');
-  imageUrl = imageUrl.replace('\\', '/');
-  imageUrl = imageUrl.replace('\\', '/');
   return (
     <main className="project__view">
       <Navbar {...props} backgroundColor={true} navbarRelative={true}/>
       <section className="project__view-images">
-        <header className="project__view-header" style={{backgroundImage: `url(${imageUrl})`}}>
+        <header className="project__view-header" style={{backgroundImage: `url(${props.project.imageUrl})`}}>
         </header>
         <section className="project__view-meta">
           <h1 className="project_view__meta--name">{props.project.name}</h1>
@@ -26,14 +22,10 @@ const ProjectViewComponent = (props) => {
         </section>
         {
           props.project.uploads.map((imgPath, key) => {
-            let _imgPath = `${window.origin}\\${imgPath}`;
-            _imgPath = _imgPath.replace('\\', '/');
-            _imgPath = _imgPath.replace('\\', '/');
-            _imgPath = _imgPath.replace('\\', '/');
 
             return (
               <section key={key} className="project__view-image" >
-                <img src={_imgPath}/>
+                <img src={imgPath}/>
               </section>
             )
           })

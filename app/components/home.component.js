@@ -182,7 +182,7 @@ class HomeComponent extends Component {
 
                    return (
                      <div key={key} className="image-slide swiper-slide">
-                      <img src={window.origin + '/' + project.imageUrl} alt="project image"/>
+                      <img src={project.imageUrl} alt="project image"/>
                      </div>
                    )
                  })

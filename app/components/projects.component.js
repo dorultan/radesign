@@ -22,7 +22,7 @@ const ProjectsComponent = ({grid, deleteProject}) => {
                   return (
                     <div key={key} className="project">
                      <Link to={`/dashboard/projects/view/${project.uid}`}>
-                      <img src={window.origin + '/' + project.imageUrl} alt={project.name + "'s collection of images.'"}/>
+                      <img src={project.imageUrl} alt={project.name + "'s collection of images.'"}/>
                      </Link>
                      <p>{project.description}</p>
                      <div className="project-buttons">
