@@ -915,15 +915,10 @@ input[type="file"] {
   flex-grow: 0;
   padding: 20px 0;
   flex-shrink: 0;
-  flex-basis: 100%;
+  flex-basis: 50%;
   text-align: center;
   color: #333;
   transition: all 0.5s;
-}
-@media only screen and (min-width: 768px ) {
-  .project__view .nav-next--prev .nav-link {
-    flex-basis: 50% !important;
-  }
 }
 .project__view .nav-next--prev .nav-link:hover {
   color: #666 !important;
