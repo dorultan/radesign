@@ -166,24 +166,28 @@ const projectsController = {
         console.log(err);
         return res.status(500).json(err);
 			}
-      console.log(err);
-      console.log(file);
-      Project
 
-      .create({
-        imageUrl: file.path,
-        description: req.body.description,
-        name: req.body.name,
-        uid: replaceSpaceFromString(req.body.name),
-        tag: req.body.tag,
-        color: req.body.color
-      }, (err, data) => {
-        if(err) {
-          return res.status(404).json({message: err.message});
-        }
+      if(file) {
+        Project
 
-          return res.status(200).json(data);
-      })
+        .create({
+          imageUrl: file.path,
+          description: req.body.description,
+          name: req.body.name,
+          uid: replaceSpaceFromString(req.body.name),
+          tag: req.body.tag,
+          color: req.body.color
+        }, (err, data) => {
+          if(err) {
+            return res.status(404).json({message: err.message});
+          }
+
+            return res.status(200).json(data);
+        })
+      } else {
+        res.status(500).json({message: "Can't upload image."})
+      }
+
     })
   },
 
