@@ -163,10 +163,11 @@ const projectsController = {
     uploadWithMetaImage(req, res, function(err) {
 			const file = req.file;
 			if(err instanceof multer.MulterError) {
-
+        console.log(err);
         return res.status(500).json(err);
 			}
-      console.log(file)
+      console.log(err);
+      console.log(file);
       Project
 
       .create({
