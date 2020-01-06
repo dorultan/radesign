@@ -26,7 +26,7 @@ export const initializeProjectForm = (uid) => {
 				uid: data.uid,
 				name: data.name,
 				description: data.description,
-				previewUrl: window.origin + '/' + data.imageUrl,
+				previewUrl: data.imageUrl,
 				oldImagePath: data.imageUrl,
 				tag: data.tag,
 				color: data.color,
