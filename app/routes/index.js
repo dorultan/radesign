@@ -5,6 +5,7 @@ import Project from '../containers/project.container';
 import Projects from '../containers/projects.container';
 import Galery from '../containers/galery.container';
 import ProjectView from '../containers/projectView.container';
+import InfoComponent from '../components/info.component';
 
 const routes = [
   {
@@ -13,7 +14,17 @@ const routes = [
     exact: true
   },
   {
-    path: '/projects/:project_id',
+    path: '/projects',
+    component: Home,
+    exact: true
+  },
+  {
+    path: '/info',
+    component: InfoComponent,
+    exact: true
+  },
+  {
+    path: '/projects/:uid',
     exact: true,
     component: ProjectView
   },
@@ -42,13 +53,13 @@ const routes = [
       },
 
       {
-        path: '/dashboard/projects/edit/:project_id',
+        path: '/dashboard/projects/edit/:uid',
         component: Project,
         exact: true
       },
 
       {
-        path: '/dashboard/projects/view/:project_id',
+        path: '/dashboard/projects/view/:uid',
         component: Galery,
         exact: true
       }

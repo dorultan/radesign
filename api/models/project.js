@@ -5,7 +5,9 @@ const Schema = mongodb.Schema;
 const Project = {
   name: {
     type: String,
-    required: true
+    unique: true,
+    required: true,
+    dropDups: true
   },
 
   description: {
@@ -15,7 +17,8 @@ const Project = {
 
   imageUrl: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
 
   uploads: {
@@ -36,7 +39,13 @@ const Project = {
     type: String,
     required: true
   },
+
   color: {
+    type: String,
+    required: true
+  },
+
+  uid: {
     type: String,
     required: true
   }

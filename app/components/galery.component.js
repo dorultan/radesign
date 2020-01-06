@@ -22,13 +22,13 @@ class GaleryComponent extends PureComponent {
     if(file) {
       const url = reader.readAsDataURL(file);
       data.image = file;
-      data.id = this.props.match.params.project_id;
+      data.uid = this.props.match.params.uid;
       this.props.addImageToGallery(data);
     }
   }
 
   removeImage(path) {
-    const id = this.props.match.params.project_id;
+    const id = this.props.match.params.uid;
     const data = {
       id: id,
       path: path

@@ -1,27 +1,10 @@
 import axios from 'axios';
+import {decodeToken, hasToken, privateRequest} from '../utilities';
 
-const hasToken = () => {
-  const token = window.localStorage.getItem('token');
+export const GetUser = () => {
+	 let token = window.localStorage.getItem('token');
 
-  if(token) {
-    return true;
-  }
-
-  return false;
-}
-
-const privateRequest = () => {
-  const token = window.localStorage.getItem('token');
-  // Check if is a token in the localStorage, so we can
-  // send requests with the Authorization header.
-  if(token) {
-    const instance = axios.create({
-			headers: {
-				'Authorization': `bearer ${token}`
-			}
-		})
-    return instance;
-  }
+   return token ? decodeToken(token).user : null;
 }
 
 export const IsAuthenticated = (token) => {
@@ -51,6 +34,8 @@ export const CreateProject = (values) => {
   formData.append('image', values.image);
   formData.append('name', values.name);
   formData.append('description', values.description);
+  formData.append('color', values.color);
+  formData.append('tag', values.tag);
 
   const config = {
     headers: {
@@ -66,10 +51,10 @@ export const FetchProjects = () => {
   return axios.get('/api/projects');
 }
 
-export const FetchProject = (project_id) => {
+export const FetchProject = (uid) => {
   const payload = axios.get('/api/projects', {
     params: {
-      project_id
+      uid
     }
   })
 
@@ -103,11 +88,11 @@ export const UpdateProject = (props) => {
   return payload;
 }
 
-export const DeleteProject = (id) => {
+export const DeleteProject = (uid) => {
 
   return privateRequest().delete('/api/projects', {
     params: {
-      id: id
+      uid: uid
     }
   })
 }

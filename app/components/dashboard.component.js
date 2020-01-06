@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link, Switch, Route} from 'react-router-dom';
-// import DashboardNavComponent from './dashboardNavbar.component';
+import {Link, Switch, Route, Redirect} from 'react-router-dom';
+import DashboardNavComponent from './dashboardNavbar.component';
+
 import './dashboard.less';
 
 const Dashboard = (props) => {
@@ -15,6 +16,7 @@ const Dashboard = (props) => {
        </ul>
      </aside>
      <section className="dashboard-section">
+       <DashboardNavComponent {...props}/>
        <Switch>
          {
            props.routes.map(({path, component, exact}, key) => {
@@ -23,7 +25,7 @@ const Dashboard = (props) => {
            })
          }
          <Route>
-           <h1>Nothing was routed</h1>
+           <Redirect to="/dashboard/projects"/>
          </Route>
        </Switch>
      </section>

@@ -10,9 +10,6 @@ const projects = (state = null, action) => {
     case DELETE_PROJECT:
       return state.filter((item) => item._id !== action.payload.data._id)
       break;
-    case FETCH_PROJECT:
-      return action.payload.data;
-      break;
     default:
 
       break;

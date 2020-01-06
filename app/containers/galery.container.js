@@ -11,9 +11,9 @@ class Galery extends Component {
   }
 
   componentDidMount() {
-    const id = this.props.match.params.project_id;
+    const uid = this.props.match.params.uid;
 
-    this.props.fetchProject(id);
+    this.props.fetchProject(uid);
   }
 
   render() {

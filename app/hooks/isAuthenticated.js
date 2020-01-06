@@ -2,17 +2,19 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {isAuthenticated} from '../actions';
+import {isAuthenticated, logOut, getUser} from '../actions';
 
 const bindActionCreatorsToProps = (dispatch) => {
   return bindActionCreators({
-    isAuthenticated
+    isAuthenticated,
+    logOut,
+    getUser
   }, dispatch)
 };
 
-const mapStateToProps = ({isAuthenticated}) => {
+const mapStateToProps = ({isAuthenticated, user}) => {
 
-  return {authenticated: isAuthenticated}
+  return {authenticated: isAuthenticated, user}
 }
 
 export const IsAuthenticated = (ChildComponent) => {
@@ -23,20 +25,34 @@ export const IsAuthenticated = (ChildComponent) => {
 
     }
 
+    componentDidUpdate() {
+
+      if(this.props.authenticated && !this.props.user) {
+
+        this.props.getUser();
+      }
+
+    }
+
     componentDidMount() {
       this.props.isAuthenticated();
+      this.props.getUser();
     }
 
     render() {
+
       if(this.props.authenticated === null) {
         return <h1>Checking if you're logged in ...</h1>
       }
+      else if(this.props.authenticated && !this.props.user) {
+        return <h1>Getting info about your profile ...</h1>
+      }
 
-      else if(this.props.authenticated) {
+      else if(this.props.authenticated || this.props.user) {
         return <ChildComponent {...this.props}/>
       }
       else {
-        return <Redirect to="/login"/>
+        return <Redirect to="/"/>
       }
     }
   }

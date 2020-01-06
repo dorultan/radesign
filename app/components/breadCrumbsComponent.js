@@ -6,7 +6,6 @@ import './breadCrumbsComponent.less';
 const BreadCrumbs = (props) => {
 	// let location = pathname.split('/').filter((l) => l !== "");
 	let href = "";
-	console.log(props)
 	return (
 		 <div className="bread-crumbs">
 

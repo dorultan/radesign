@@ -1,28 +1,29 @@
 
 import diff from 'object-diff';
-import {decodeToken, setToken} from '../utilities';
+import {decodeToken, setToken, removeToken} from '../utilities';
 
 import {
 	LOGIN_REQUEST, LOGIN_ERROR, LOG_OUT, LOGIN_SUCCESS,
-	IS_AUTHENTICATED, CREATE_PROJECT, UPDATE_PROJECT,
-	DELETE_PROJECT, FETCH_PROJECT, FETCH_PROJECTS,
+	IS_AUTHENTICATED, CREATE_PROJECT, CREATE_PROJECT_ERROR,
+	UPDATE_PROJECT, DELETE_PROJECT, FETCH_PROJECT, FETCH_PROJECTS,
 	INITIALIZE_PROJECT_FORM, REMOVE_INITIAL_DATA,
-	ADD_IMAGE_TO_GALLERY, REMOVE_IMAGE_FROM_GALLERY
+	ADD_IMAGE_TO_GALLERY, REMOVE_IMAGE_FROM_GALLERY,
+	GET_USER
 } from './types';
 
 import { Login, IsAuthenticated, CreateProject, FetchProjects,
 DeleteProject, FetchProject, UpdateProject, UpdateProjectWithImage,
-AddImageToGallery, RemoveImageFromGallery } from '../api';
+AddImageToGallery, RemoveImageFromGallery, GetUser } from '../api';
 
-export const initializeProjectForm = (id) => {
+export const initializeProjectForm = (uid) => {
 	return (dispatch) => {
 
-		FetchProject(id)
+		FetchProject(uid)
 		.then((res) => {
 			let data = res.data;
 
 			const values = {
-				id: data._id,
+				uid: data.uid,
 				name: data.name,
 				description: data.description,
 				previewUrl: window.origin + '/' + data.imageUrl,
@@ -55,11 +56,23 @@ export const removeInitialData = () => {
 export const createProject = (values) => {
 	values.image = values.image[0];
 
-	const payload = CreateProject(values);
+	return (dispatch) => {
 
-	return {
-		type: CREATE_PROJECT,
-		payload: payload
+		CreateProject(values)
+
+		.then((data) => {
+			dispatch({
+				type: CREATE_PROJECT,
+				payload: data
+			})
+		})
+
+		.catch(err => {
+			dispatch({
+				type: CREATE_PROJECT_ERROR,
+				payload: err
+			})
+		})
 	}
 }
 
@@ -77,18 +90,16 @@ export const login = (username, password) => {
 					payload: decodeToken(data.token)
 				})
 
-				dispatch({
-					type: IS_AUTHENTICATED,
-					payload: true
-				})
+				// dispatch({
+				// 	type: IS_AUTHENTICATED,
+				// 	payload: true
+				// })
 		})
 
 		.catch((err) => {
 			dispatch({
 				type: LOGIN_ERROR,
-				payload: {
-					message: "Username or password is incorect"
-				}
+				payload: null
 			})
 
 			dispatch({
@@ -96,6 +107,15 @@ export const login = (username, password) => {
 				payload: false
 			})
 		})
+	}
+}
+
+export const logOut = () => {
+	removeToken()
+
+	return {
+		type: LOG_OUT,
+		payload: null
 	}
 }
 
@@ -108,7 +128,7 @@ export const updateProject = (props) => {
 		.then((data) => {
 
 			const values = {
-				id: data._id,
+				uid: data.uid,
 				name: data.name,
 				description: data.description,
 				previewUrl: window.origin + '/' + data.imageUrl,
@@ -154,6 +174,15 @@ export const updateProjectWithImage = (props) => {
 	}
 }
 
+export const getUser = () => {
+	const payload = GetUser();
+
+	return {
+		type: GET_USER,
+		payload: payload
+	}
+}
+
 export const isAuthenticated = () => {
 
 	return (dispatch) => {
@@ -166,6 +195,7 @@ export const isAuthenticated = () => {
 				payload: true
 			})
 		})
+
 		.catch(err => {
 			dispatch({
 				type: IS_AUTHENTICATED,
@@ -175,11 +205,11 @@ export const isAuthenticated = () => {
 	}
 }
 
-export const updateUsername = (id, username) => {
+export const updateUsername = (uid, username) => {
 
 	return (dispatch) => {
 
-		UpdateUsername(id, username)
+		UpdateUsername(uid, username)
 
 		.then(({data}) => {
 			window.localStorage.setItem('token', data.token);
@@ -196,33 +226,15 @@ export const updateUsername = (id, username) => {
 }
 
 export const getUserData = () => {
-	  let token = window.localStorage.getItem('token');
-	  const tokens = token.split('.');
-	  const userInfoDecoded = window.atob(tokens[1]);
-	  const userInfoJson = JSON.parse(userInfoDecoded);
 
-		return {
-			type: "GET_USER_DATA",
-			payload: userInfoJson.user
-		}
-}
-export const getUser = () => {
-
-	return (dispatch) => {
-
-		GetUser()
-
-		.then((res) => {
-			dispatch({
-				type: "GET_USER_DATA",
-				payload: res.data.user
-			})
-		})
-	}
+		// return {
+		// 	type: "GET_USER_DATA",
+		// 	payload: userInfoJson.user
+		// }
 }
 
-export const updateUserPassword = (id, password) => {
-	const payload = UpdateUserPassword(id, password);
+export const updateUserPassword = (uid, password) => {
+	const payload = UpdateUserPassword(uid, password);
 
 	return {
 		type: UPDATE_USER_PASSWORD,
@@ -230,10 +242,10 @@ export const updateUserPassword = (id, password) => {
 	}
 }
 
-export const updateUserSocial = (id, social) => {
+export const updateUserSocial = (uid, social) => {
 
 	return (dispatch) => {
-		UpdateUserSocial(id, social)
+		UpdateUserSocial(uid, social)
 
 		.then(({data}) => {
 
@@ -251,9 +263,9 @@ export const updateUserSocial = (id, social) => {
 	}
 }
 
-export const updateUserEmail = (id, email) => {
+export const updateUserEmail = (uid, email) => {
 	return (dispatch) => {
-		UpdateUserEmail(id, email)
+		UpdateUserEmail(uid, email)
 
 		.then(({data}) => {
 
@@ -270,8 +282,8 @@ export const updateUserEmail = (id, email) => {
 	}
 }
 
-export const updateUserAvatar = (id, avatar) => {
-	const payload = UpdateUserAvatar(id, avatar);
+export const updateUserAvatar = (uid, avatar) => {
+	const payload = UpdateUserAvatar(uid, avatar);
 	return {
 		type: UPDATE_USER_AVATAR,
 		payload: payload
@@ -287,8 +299,8 @@ export const fetchProjects = () => {
 	}
 }
 
-export const fetchProject = (id) => {
-	const payload = FetchProject(id);
+export const fetchProject = (uid) => {
+	const payload = FetchProject(uid);
 
 	return {
 		type: FETCH_PROJECT,
@@ -296,8 +308,8 @@ export const fetchProject = (id) => {
 	}
 }
 
-export const deleteProject = (id) => {
-	const payload = DeleteProject(id);
+export const deleteProject = (uid) => {
+	const payload = DeleteProject(uid);
 
 	return {
 		type: DELETE_PROJECT,

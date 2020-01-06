@@ -1,4 +1,5 @@
 // Format date day month year.
+import axios from 'axios'
 export const formatDate = (date) => {
   date = new Date(date);
   // Month names.
@@ -19,12 +20,35 @@ export const formatDate = (date) => {
 
 export const decodeToken = (token) => {
   const tokens = token.split('.');
-  const userInfoDecoded = window.atob(tokens[1]);
-  const userInfoJson = JSON.parse(userInfoDecoded);
+  const tokenInfoDecoded = window.atob(tokens[1]);
+  const tokenInfoJson = JSON.parse(tokenInfoDecoded);
 
-  return userInfoJson;
+  return tokenInfoJson;
 }
 
+export const hasToken = () => {
+  const token = window.localStorage.getItem('token');
+
+  if(token) {
+    return true;
+  }
+
+  return false;
+}
+
+export const privateRequest = () => {
+  const token = window.localStorage.getItem('token');
+  // Check if is a token in the localStorage, so we can
+  // send requests with the Authorization header.
+  if(token) {
+    const instance = axios.create({
+			headers: {
+				'Authorization': `bearer ${token}`
+			}
+		})
+    return instance;
+  }
+}
 
 export const setToken = (token) => {
 

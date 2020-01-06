@@ -1,0 +1,148 @@
+@import '../styles/sizes.less';
+
+.project__view {
+  margin: 0;
+  padding: 0px;
+
+  .project__view-images {
+    margin: 0;
+    padding: 0 20px;
+
+    .project__view-header {
+      margin-bottom: 20px;
+      padding: 0;
+      height: 600px;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .project__view-meta {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background: #fff;
+      max-width: 500px;
+      margin-right: auto;
+      margin-left: auto;
+
+      .project_view__meta--name {
+        font-size: 2.2rem;
+
+        @media @medium {
+          font-size: 2.5rem !important;
+        }
+      }
+
+      .project_view__meta--tag {
+        display: inline-block;
+        margin: 20px 0;
+      }
+
+      .project_view__meta--description {
+        font-size: 17px;
+      }
+    }
+
+    .project__view-image {
+      margin: 20px 0;
+      padding: 0;
+      background-position: center;
+      // background-size: cover;
+      // background-attachment: fixed;
+      // background-repeat: no-repeat;
+      height: auto;
+
+      img {
+        height: auto;
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .social {
+    margin: 0;
+    padding: 50px 0;
+    text-align: center;
+    width: 100%;
+    height: auto;
+
+    a {
+      margin: 0 5px;
+      color: #333;
+      text-decoration: underline;
+    }
+  }
+
+  .nav-next--prev {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+
+
+    .nav-link.single-link {
+      flex-basis: 100% !important;
+
+      @media @medium {
+        flex-basis: 50% !important;
+      }
+    }
+
+    .nav-link {
+      flex-grow: 0;
+      padding: 20px 0;
+      flex-shrink: 0;
+      flex-basis: 100%;
+      text-align: center;
+      color: #333;
+      transition: all .5s;
+
+      @media @medium {
+        flex-basis: 50% !important;
+      }
+
+      &:hover {
+        color: #666 !important;
+        transition: all .5s;
+      }
+      &.previous-link:hover {
+        .icon {
+          svg {
+            animation-name: icon-move-left;
+            animation-duration: .5s;
+            animation-timing-function: ease-in-out;
+          }
+        }
+      }
+
+      &.next-link:hover {
+        .icon {
+          svg {
+            animation-name: icon-move-right;
+            animation-duration: .5s;
+            animation-timing-function: ease-in-out;
+          }
+        }
+      }
+
+      .link__project-action {
+        display: block;
+      }
+
+      .link__project-action,
+      .link__project-name {
+        margin: 10px 0;
+      }
+
+      .link__project-name {
+        font-size: 1.7rem;
+
+        @media @medium {
+          font-size: 2rem !important;
+        }
+      }
+    }
+  }
+}

@@ -9,7 +9,7 @@ const Login = (props) => {
      <Form className="login-form" onSubmit={props.handleSubmit(({username, password}) => props.login(username, password))}>
        <Field type="text" name="username" placeholder="username" component={InputFieldComponent}/>
        <Field type="password" name="password" placeholder="password" component={InputFieldComponent}/>
-       {props.user && props.user.message && <div>{props.user.message}</div>}
+       {!props.user && props.submitSucceeded && <div>Username or password is wrong.</div>}
        <button type="submit" className="btn btn-success">Log in</button>
      </Form>
     </main>

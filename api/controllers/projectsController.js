@@ -2,23 +2,65 @@ import Project from '../models/project';
 import multer from 'multer';
 import fs from 'fs';
 
+const replaceSpaceFromString = (string) => {
+  let str = string.toLowerCase();
+  while (str.includes(' ')) {
+      str = str.replace(' ', '-');
+  }
+
+  return str;
+}
+
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'api/uploads/')
   },
+
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
+    let filename = replaceSpaceFromString(file.originalname);
+    cb(null, filename);
   }
 });
 
+const storeWithMetaImage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, 'api/uploads');
+  },
+  filename: function(req, file, cb) {
+    let filename = replaceSpaceFromString(file.originalname);
+
+
+
+    cb(null, 'meta-image-' + filename)
+  }
+})
+
+
+const deleteFiles = (arr, cb) => {
+
+  arr.forEach((filePath, idx) => {
+
+    fs.unlink(filePath, (err) => {
+
+      if(err) {
+        cb(err);
+        return;
+      } else if(idx === arr.length -1) {
+          cb(null);
+      }
+    })
+  })
+}
+
 const upload = multer({storage: storage}).single('image');
+const uploadWithMetaImage = multer({storage: storeWithMetaImage}).single('image');
 
 const projectsController = {
   get(req, res, next) {
 
-    if(req.query.project_id) {
+    if(req.query.uid) {
       Project
-      .findOne({_id: req.query.project_id})
+      .findOne({uid: req.query.uid})
 
       .exec((err, data) => {
 
@@ -26,7 +68,7 @@ const projectsController = {
           return res.status(404).json({message: "Not found"});
         }
 
-        res.status(200).json(data);
+        return res.status(200).json(data);
       })
 
     }
@@ -56,8 +98,8 @@ const projectsController = {
   addImage(req, res) {
     upload(req, res, function(err) {
       const file = req.file;
-      const id = req.body.id;
-      console.log(id)
+
+      const uid = req.body.uid;
 
       if(err instanceof multer.MulterError) {
         return res.status(400).json({multerError: err});
@@ -65,7 +107,7 @@ const projectsController = {
 
       Project
 
-      .findOneAndUpdate({_id: id},
+      .findOneAndUpdate({uid: uid},
       {
         $push: {
           uploads: file.path
@@ -76,7 +118,6 @@ const projectsController = {
       })
 
       .exec((err, data) => {
-        console.log(data);
         if(err) {
           return res.status(400).json({error: err})
         }
@@ -87,7 +128,7 @@ const projectsController = {
   },
 
   removeImage(req, res) {
-    const id = req.body.id;
+    const uid = req.body.uid;
     const path = req.body.path;
     Project
 
@@ -119,7 +160,7 @@ const projectsController = {
 
   create(req, res) {
 
-    upload(req, res, function(err) {
+    uploadWithMetaImage(req, res, function(err) {
 			const file = req.file;
 			if(err instanceof multer.MulterError) {
 
@@ -132,25 +173,31 @@ const projectsController = {
         imageUrl: file.path,
         description: req.body.description,
         name: req.body.name,
+        uid: replaceSpaceFromString(req.body.name),
         tag: req.body.tag,
         color: req.body.color
       }, (err, data) => {
-
         if(err) {
-          return res.status(404).json({message: "For some reasons, can't create data."});
+          return res.status(404).json({message: err.message});
         }
 
-        res.status(200).json(data);
+          return res.status(200).json(data);
       })
     })
   },
 
   update(req, res) {
-    const id = req.body.id;
+    const uid = req.body.uid;
     const body = req.body;
     Project
-    .findOneAndUpdate({_id: id},
-      {description: body.description, name: body.name, tag: req.body.tag, color: req.body.color}, {new: true})
+    .findOneAndUpdate({uid: uid},
+      {
+        description: body.description,
+        name: body.name,
+        tag: req.body.tag,
+        color: req.body.color,
+        uid: replaceSpaceFromString(req.body.uid)
+      }, {new: true})
 
     .exec((err, data) => {
       if(err) {
@@ -163,14 +210,22 @@ const projectsController = {
 
   updateImage(req, res, next) {
 
-    upload(req, res, function(err) {
+    uploadWithMetaImage(req, res, function(err) {
       const file = req.file;
-      const id = req.body.id;
+      const uid = req.body.uid;
       const body = req.body;
 
       if(file) {
         Project
-        .findOneAndUpdate({_id: id}, {imageUrl: file.path, description: body.description, name: body.name, tag: body.tag, color: body.color}, {new: true})
+        .findOneAndUpdate({uid: uid},
+          {
+            imageUrl: file.path,
+            description: body.description,
+            name: body.name,
+            tag: body.tag,
+            color: body.color,
+            uid: replaceSpaceFromString(body.name)
+          }, {new: true})
 
         .exec((err, data) => {
           if(err) {
@@ -188,7 +243,6 @@ const projectsController = {
         // Update the project based on project_id received from the body;
       }
 
-
       else {
         next()
       }
@@ -199,23 +253,25 @@ const projectsController = {
 
     Project
 
-    .findOneAndRemove({_id: req.query.id})
+    .findOneAndRemove({uid: req.query.uid})
 
     .exec((err, data) => {
+      let images = [];
 
       if(err) {
 
         return res.status(400).json({message: "Can't remove the project."});
       }
-
-      fs.unlink(data.imageUrl, (err) => {
-
+      images.push(data.imageUrl);
+      images = images.concat(data.uploads);
+      deleteFiles(images, (err) => {
         if(err) {
-          return res.status(404).json({message: 'The image was not found'});
+          return res.status(405).json({message: "Can't remove files.", error: err})
         }
 
-        res.status(200).json(data);
+        return res.status(200).json(data);
       })
+
     })
   }
 }

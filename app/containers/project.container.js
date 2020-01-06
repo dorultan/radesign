@@ -18,6 +18,12 @@ class Project extends Component {
 
   }
 
+  componentDidUpdate() {
+    if(!this.isFormInitialized() && this.props.project) {
+      this.props.history.push(`/dashboard/projects/view/${this.props.project.uid}`)
+    }
+  }
+
   isFormInitialized() {
     return this.props.initialData ? true : false;
   }
@@ -38,6 +44,7 @@ class Project extends Component {
         this.props.updateProject(props);
       }
     } else {
+
       this.props.createProject(props)
     }
   }
@@ -49,7 +56,7 @@ class Project extends Component {
 
   shouldReceiveInitialData() {
 
-    return this.props.match.params.project_id ? true : false;
+    return this.props.match.params.uid ? true : false;
   }
 
   componentDidMount() {
@@ -58,7 +65,7 @@ class Project extends Component {
     }
 
     if(this.shouldReceiveInitialData()) {
-      this.props.initializeProjectForm(this.props.match.params.project_id);
+      this.props.initializeProjectForm(this.props.match.params.uid);
     }
   }
 
@@ -83,9 +90,9 @@ const bindActionCreatorsToProps = (dispatch) => {
   return bindActionCreators({createProject, initializeProjectForm, removeInitialData, updateProjectWithImage, updateProject}, dispatch);
 }
 
-const mapStateToProps = ({initialData}) => {
+const mapStateToProps = ({initialData, project}) => {
 
-  return {initialData}
+  return {initialData, project}
 }
 
 

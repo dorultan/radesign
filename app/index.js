@@ -8,7 +8,6 @@ import {Store} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from './reducers';
 import App from './components';
-import Navbar from './components/navbar.component';
 
 import routes from './routes';
 const history = require('history').createBrowserHistory;
@@ -22,7 +21,6 @@ const Client = (props) => {
   const C = props.component;
   return (
     <main className="client">
-      <Navbar {...props}/>
       <C {...props}/>
     </main>
   )
@@ -46,7 +44,7 @@ const RenderComponent = ({route}) => {
     let C = route.component;
     return (
       <Route path={route.path} exact={route.exact} routes={route.routes} render={(props) => {
-          return <C routes={route.routes}/>
+          return <C routes={route.routes} {...props}/>
         }}/>
     )
   }

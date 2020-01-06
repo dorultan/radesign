@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import Login from '../components/login.component';
 import {bindActionCreators} from 'redux';
-import {login} from '../actions';
+import {login, isAuthenticated} from '../actions';
 import {connect} from 'react-redux';
 
 class LoginContainer extends Component {
@@ -9,6 +9,22 @@ class LoginContainer extends Component {
     super(props)
   }
 
+  componentDidUpdate() {
+
+    if(this.props.user || this.props.authenticated) {
+      this.props.history.push('/dashboard');
+    }
+    
+  }
+
+  componentDidMount() {
+    this.props.isAuthenticated();
+
+    if(this.props.authenticated) {
+      this.props.history.push('/dashboard');
+    }
+
+  }
   render() {
 
     return (
@@ -19,12 +35,14 @@ class LoginContainer extends Component {
 
 const bindActionCreatorsToProps = (dispatch) => {
 
-  return bindActionCreators({login}, dispatch);
+  return bindActionCreators({login, isAuthenticated}, dispatch);
 }
 
-const mapStateToProps = ({user}) => {
+const mapStateToProps = ({user, isAuthenticated}) => {
+  // console.log(isAuthenticated)
   return {
-    user
+    user,
+    authenticated: isAuthenticated
   }
 }
 

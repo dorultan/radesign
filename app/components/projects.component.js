@@ -21,13 +21,13 @@ const ProjectsComponent = ({grid, deleteProject}) => {
 
                   return (
                     <div key={key} className="project">
-                     <Link to={`/dashboard/projects/view/${project._id}`}>
+                     <Link to={`/dashboard/projects/view/${project.uid}`}>
                       <img src={window.origin + '/' + project.imageUrl} alt={project.name + "'s collection of images.'"}/>
                      </Link>
                      <p>{project.description}</p>
                      <div className="project-buttons">
-                       <Link to={`/dashboard/projects/edit/${project._id}`} className="btn btn-primary btn-sm">Edit</Link>
-                       <button type="button" className="btn btn-danger btn-sm" onClick={() => deleteProject(project._id)}>Delete</button>
+                       <Link to={`/dashboard/projects/edit/${project.uid}`} className="btn btn-primary btn-sm">Edit</Link>
+                       <button type="button" className="btn btn-danger btn-sm" onClick={() => deleteProject(project.uid)}>Delete</button>
                      </div>
                     </div>
                   )
