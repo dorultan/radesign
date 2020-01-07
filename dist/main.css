@@ -5,7 +5,7 @@
   background: #fff;
 }
 .navbar-colored .cls-1 {
-  fill: #333 !important;
+  fill: #260E30 !important;
   transition: all 0.5s;
 }
 .navbar-colored .ra {
@@ -13,7 +13,7 @@
   transition: all 0.5s;
 }
 .navbar-colored .design {
-  fill: #273655;
+  fill: #be7409;
   transition: all 0.5s;
 }
 .navbar-colored .navbar__links__list-item a {
@@ -343,7 +343,7 @@
 }
 .home .home-slides .swiper-container.vertical-container .swiper-wrapper .content-silde .content-wrapper {
   z-index: 1000;
-  height: 50vh;
+  height: 56vh;
   width: 100%;
   display: flex;
   flex-direction: column;

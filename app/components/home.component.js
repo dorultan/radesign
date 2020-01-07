@@ -144,10 +144,10 @@ class HomeComponent extends Component {
                 <footer className="home__header__intro-footer">
                   <ul className="footer-list">
                     <li className="footer__list-item">Get in touch</li>
-                    <li className="footer__list-item email"><a href="#">raulcirt@gmail.com</a></li>
-                    <li className="footer__list-item phone"><a href="#">07483282300</a></li>
-                    <li className="footer__list-item"><a href="#"><FontAwesomeIcon icon={faFacebook}/></a></li>
-                    <li className="footer__list-item"><a href="#"><FontAwesomeIcon icon={faLinkedin}/></a></li>
+                    <li className="footer__list-item email"><a target="_blank" href="mailto:raul.cirt1993@gmail.com">raulcirt@gmail.com</a></li>
+                    <li className="footer__list-item phone"><a target="_blank" href="tel:+40725640513">+40725640513</a></li>
+                    <li className="footer__list-item"><a target="_blank" href="https://www.facebook.com/profile.php?id=100010341764382"><FontAwesomeIcon icon={faFacebook}/></a></li>
+                    <li className="footer__list-item"><a target="_blank" href="https://www.linkedin.com/in/raul-cirt-b72481172/"><FontAwesomeIcon icon={faLinkedin}/></a></li>
                   </ul>
                 </footer>
               </header>

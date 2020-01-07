@@ -14,12 +14,12 @@ const InfoComponent = (props) => {
        <div className="info__page-contact column">
          <h4>Contact</h4>
          <p>
-           <a href="tel:0748329473"><FontAwesomeIcon icon={faPhone}/> 0748329473</a>
-           <a href="mailto:raulcirt@gmail.com"><FontAwesomeIcon icon={faEnvelope}/> raulcirt@gmail.com</a>
+           <a href="tel:+40725640513"><FontAwesomeIcon icon={faPhone}/> +40725640513</a>
+           <a href="mailto:raul.cirt1993@gmail.com"><FontAwesomeIcon icon={faEnvelope}/> raul.cirt1993@gmail.com</a>
          </p>
          <p>
-           <a href="https://linkedin.com/raulcirt"><FontAwesomeIcon icon={faLinkedin}/> Raul Cirt</a>
-           <a href="https://facebook.com/raulcirt"><FontAwesomeIcon icon={faFacebook}/> Raul Cirt</a>
+           <a href="https://www.linkedin.com/in/raul-cirt-b72481172/"><FontAwesomeIcon icon={faLinkedin}/> Raul Cirt</a>
+           <a href="https://www.facebook.com/profile.php?id=100010341764382"><FontAwesomeIcon icon={faFacebook}/> Raul Cirt</a>
          </p>
        </div>
        <div className="info__page-about column">

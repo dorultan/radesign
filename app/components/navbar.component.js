@@ -29,8 +29,8 @@ const NavbarComponent = (props) => {
         <ul className="navbar__links-list">
           <li className="navbar__links__list-item"><NavLink to="/info">Info</NavLink></li>
           <li className="navbar__links__list-item"><NavLink to="/projects">Projects</NavLink></li>
-          <li className="navbar__links__list-item"><a href="mailto:raulcirt@gmail.com"><FontAwesomeIcon icon={faEnvelope}/></a></li>
-          <li className="navbar__links__list-item"><a href="tel:0849283398"><FontAwesomeIcon icon={faPhone}/></a></li>
+          <li className="navbar__links__list-item"><a target="_blank" href="mailto:raul.cirt1993@gmail.com"><FontAwesomeIcon icon={faEnvelope}/></a></li>
+          <li className="navbar__links__list-item"><a target="_blank" href="tel:+40725640513"><FontAwesomeIcon icon={faPhone}/></a></li>
         </ul>
      </div>
     </nav>
