@@ -20,8 +20,8 @@ const renderHtml = (html, content, INIT_DATA) => {
 			<title>Radesign - Design for another level.</title>
   		<meta name="viewport" content="width=device-width, user-scalable=no" />
 			<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-			<meta type="og:image" content="https://radesign.s3.eu-west-2.amazonaws.com/meta/meta-main.jpg"/>
-			<meta type="og:description" content="Sed sem urna, tincidunt vitae nisi at, viverra ullamcorper eros. Maecenas non sapien quis magna sagittis facilisis. Nullam in felis auctor, faucibus odio eu, porta purus."/>
+			<meta property="og:image" content="https://radesign.s3.eu-west-2.amazonaws.com/meta/meta-main.jpg"/>
+			<meta property="og:description" content="Sed sem urna, tincidunt vitae nisi at, viverra ullamcorper eros. Maecenas non sapien quis magna sagittis facilisis. Nullam in felis auctor, faucibus odio eu, porta purus."/>
 			<meta type="description" content="Sed sem urna, tincidunt vitae nisi at, viverra ullamcorper eros. Maecenas non sapien quis magna sagittis facilisis. Nullam in felis auctor, faucibus odio eu, porta purus"/>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
 			<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|PT+Sans" rel="stylesheet">
