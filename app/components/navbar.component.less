@@ -1,11 +1,41 @@
+@import '../styles/sizes.less';
 
 .navbar-relative {
   position: relative !important;
+
+  .navbar-brand {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    background: none;
+  }
+
+  .navbar-container {
+    position: relative;
+  }
+
+  .navbar__links-list {
+    align-self: flex-start;
+    margin-top: 10px !important;
+    @media @medium {
+      padding: 0 !important;
+    }
+
+  }
 }
 
 .navbar-colored {
   background: #fff;
 
+  .navbar-brand {
+    background: #fff;
+
+    @media @medium {
+      transform: translateX(-40px);
+      background: #fff;
+      transition: background .5s ease-in-out .5s, transform .5s ease-in-out .0s;
+    }
+  }
   .cls-1 {
     fill: #260E30 !important;
     transition: all .5s;
@@ -21,10 +51,19 @@
     transition: all .5s;
   }
 
-  .navbar__links__list-item {
-    a {
-      color: #333 !important;
-      transition: all .5s;
+  .navbar__links-list {
+    padding: 5px 0 !important;
+    transition: all .5s;
+
+    @media @medium {
+      padding: 0 !important;
+      transition: none;
+    }
+    .navbar__links__list-item {
+      a {
+        color: #333 !important;
+        transition: all .5s;
+      }
     }
   }
 }
@@ -53,7 +92,6 @@
   }
 
   .navbar-container {
-    position: relative;
     max-width: 960px;
     margin: 0 auto;
     padding: 0;
@@ -64,24 +102,26 @@
   }
 
   .navbar-brand {
-    flex-grow: 1;
+    flex-grow: 0;
     margin: 0;
     padding: 0;
     color: #fff;
+    position: absolute;
 
+    @media @medium {
+      text-align: left;
+      left: 80px;
+      top: 20px;
+      transition-property: transform .5s !important;
+
+    }
     svg {
       padding: 5px;
       width: 80px;
       height: 100%;
-    }
-    img {
-      padding: 10px;
-      width: 60px;
-      height: 100%;
-      transition: all .5s;
 
-      @media @medium {
-        width: 90px;
+     @media @medium {
+        width: 104px !important;
       }
     }
   }
@@ -89,7 +129,7 @@
   .navbar__links-list {
     flex-grow: 1;
     margin: 0;
-    padding: 0;
+    padding: 5px 0;
     list-style-type: none;
     display: flex;
     flex-direction: row;
@@ -98,7 +138,12 @@
     justify-content: flex-end;
     margin-left: auto;
     margin-right: auto;
+    transition: all .5s;
 
+    @media @medium {
+      padding: 10px 0 !important;
+
+    }
     .navbar__links__list-item {
       margin: 0;
       padding: 0;

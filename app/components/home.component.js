@@ -158,7 +158,7 @@ class HomeComponent extends Component {
                     <div key={key} className="content-silde swiper-slide">
                       <div className="content-wrapper" style={{background: project.color}}>
                         <span className="tag">{project.tag}</span>
-                        <h1>{project.name}</h1>
+                        <h1 className="project-name">{project.name}</h1>
                         <Link to={`/projects/${project.uid}`}>
                           <div className="icon">
                             <FontAwesomeIcon icon={faLongArrowAltRight}/>

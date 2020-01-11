@@ -257,9 +257,20 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            padding: 40px;
             color: #fff;
 
+            .project-name {
+              font-size: 2rem;
+
+              @media @medium {
+                font-size: 2.5rem !important;
+              }
+            }
+
             @media @medium {
+              padding: 0 !important;
               height: 100% !important;
             }
 
@@ -383,21 +394,16 @@
 
             h1.intro-heading {
               max-width: 600px;
-              font-size: 30px;
               line-height: 1;
               font-weight: 600;
               margin-bottom: .5rem;
               color: #fff;
               text-shadow: 1px 1px 1px #222;
               transition: all .5s;
-
-              @media @small {
-                font-size: 35px;
-              }
+              font-size: 2rem;
 
               @media @medium {
-                font-size: 38px;
-                // margin-left: 100px;
+                font-size: 2.5rem !important;
               }
             }
 

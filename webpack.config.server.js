@@ -10,15 +10,15 @@ const DotEnvPlugin = require('dotenv-webpack');
 const serverConfig = {
 	name: 'server',
 	mode: sharedConfig.mode,
-	entry: ['babel-polyfill', 'webpack/hot/poll?1000', './server/index.js'],
+	entry: ['webpack/hot/poll?1000', './server/index.js'],
 	target: 'node',
 	externals: [nodeExternals({whitelist: ['webpack/hot/poll?1000']})],
 	output: {
-		path: sharedConfig.path,
+		path: sharedConfig.output.path,
 		filename: 'server.js',
-		publicPath: sharedConfig.publicPath
+		publicPath: sharedConfig.output.publicPath
 	},
-	watch: process.NODE_ENV === 'production' ? false : true,
+	watch: process.env.NODE_ENV === 'production' ? false : true,
 	watchOptions: {
 	    aggregateTimeout: 300,
 	    poll: 1000
@@ -43,7 +43,8 @@ const serverConfig = {
 						"DB_HOST":  JSON.stringify(process.env.DB_HOST),
 						"DB_NAME":  JSON.stringify(process.env.DB_NAME),
 						"AWS_ACCESS_KEY_ID": JSON.stringify(process.env.AWS_ACCESS_KEY_ID),
-						"AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY)
+						"AWS_SECRET_ACCESS_KEY": JSON.stringify(process.env.AWS_SECRET_ACCESS_KEY),
+						"NODE_ENV": JSON.stringify(process.env.NODE_ENV)
         }
     }),
 

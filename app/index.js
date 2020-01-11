@@ -8,6 +8,7 @@ import {Store} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import rootReducer from './reducers';
 import App from './components';
+import { loadableReady } from '@loadable/component';
 
 import routes from './routes';
 const history = require('history').createBrowserHistory;
@@ -50,17 +51,20 @@ const RenderComponent = ({route}) => {
   }
 }
 
-render(
-<Provider store={store}>
- <Router history={history()}>
-   <App>
-     {
-       routes.map((route, key) => {
-         return (
-           <RenderComponent key={key} route={route}/>
-         )
-       })
-     }
-   </App>
- </Router>
-</Provider>, document.getElementById('root'));
+loadableReady().then(() => {
+
+  render(
+  <Provider store={store}>
+   <Router history={history()}>
+     <App>
+       {
+         routes.map((route, key) => {
+           return (
+             <RenderComponent key={key} route={route}/>
+           )
+         })
+       }
+     </App>
+   </Router>
+  </Provider>, document.getElementById('root'));
+})

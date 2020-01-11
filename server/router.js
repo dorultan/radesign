@@ -1,28 +1,25 @@
 import React from 'react';
+import path from 'path';
 import ReactDOMServer from 'react-dom/server'
 import {createStore} from 'redux';
-
+import { ChunkExtractor, ChunkExtractorManager } from '@loadable/server'
 import rootReducer from '../app/reducers';
 import routes from '../app/routes';
-
 import {Provider} from 'react-redux';
 import {StaticRouter, Route} from 'react-router-dom';
 import {matchPath} from 'react-router-dom';
-
 import App from '../app/components';
 
-const renderHtml = (html, content, INIT_DATA) => {
+const statsFile = process.cwd() + '/dist/loadable-stats.json';
 
+const renderHtml = (html, content, INIT_DATA, extractor) => {
 	return `
 	 <!DOCTYPE html>
-	 <html lang="en">
+	 <html>
 		<head>
-			<title>Radesign - Design for another level.</title>
-  		<meta name="viewport" content="width=device-width, user-scalable=no" />
+			<title>${content}</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
-			<meta property="og:image" content="https://radesign.s3.eu-west-2.amazonaws.com/meta/meta-main.jpg"/>
-			<meta property="og:description" content="Sed sem urna, tincidunt vitae nisi at, viverra ullamcorper eros. Maecenas non sapien quis magna sagittis facilisis. Nullam in felis auctor, faucibus odio eu, porta purus."/>
-			<meta type="description" content="Sed sem urna, tincidunt vitae nisi at, viverra ullamcorper eros. Maecenas non sapien quis magna sagittis facilisis. Nullam in felis auctor, faucibus odio eu, porta purus"/>
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
 			<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|PT+Sans" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -34,12 +31,13 @@ const renderHtml = (html, content, INIT_DATA) => {
 	/>
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   			<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/atom-one-dark.min.css">
-			<link type="text/css" rel="stylesheet" href="/main.css"/>
+				${extractor.getStyleTags()}
 		</head>
 		<body>
 		<div id="root">${html}</div>
-		<script src="/bundle.js"></script>
+
 		<script>const INIT_DATA = ${JSON.stringify(INIT_DATA)};</script>
+		${extractor.getScriptTags()}
 		</body>
 	 </html>
 	`
@@ -48,21 +46,26 @@ const renderHtml = (html, content, INIT_DATA) => {
 const serverRenderer = () => {
 	return (req, res, next) => {
 		const ActiveRoute = routes.find((route) => matchPath(req.url, route));
-		const store = createStore(rootReducer, {});
-		const content = `Raul Cirt - Portfolio`;
-		const INIT_DATA = {name: "dorultan Ianos"};
 
-		const html = ReactDOMServer.renderToString(
+		const store = createStore(rootReducer, {});
+		const content = `Radesign - Portfolio`;
+		const INIT_DATA = {name: "Radesign"};
+		const extractor = new ChunkExtractor({statsFile});
+
+		const Jsx = extractor.collectChunks(
 			<Provider store={store}>
 				<StaticRouter location={req.url} context={INIT_DATA}>
 					<App>
-						{ActiveRoute ? ActiveRoute.component : routes[0].component}
+						{ActiveRoute ? ActiveRoute.component.render : routes[0].component.render}
 					</App>
 				</StaticRouter>
 			</Provider>
 		);
 
-		res.status(200).send(renderHtml(html, content, INIT_DATA));
+
+		const html = ReactDOMServer.renderToString(Jsx);
+
+		res.status(200).send(renderHtml(html, content, INIT_DATA, extractor));
 	}
 }
 

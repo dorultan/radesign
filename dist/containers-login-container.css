@@ -1,0 +1,27 @@
+.login {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(#FF4545, #5489);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login h1 {
+  color: #fff;
+}
+.login .login-form {
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+.login .login-form .input__wrapper {
+  margin: 10px 0;
+}
+.login .login-form .input__wrapper input {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+}
+

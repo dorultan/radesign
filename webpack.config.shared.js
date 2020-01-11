@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
+require('core-js');
 
 const sharedConfig = {
 	mode: process.env.NODE_ENV || 'development',
@@ -12,7 +13,7 @@ const sharedConfig = {
 		rules: [
 			{
 				test: /\.js$/,
-				exclude: '/node_modules/',
+				exclude: /node_modules/,
 				use: {
 					loader: 'babel-loader'
 				}
@@ -20,7 +21,7 @@ const sharedConfig = {
 
 			{
 				test: /\.(less|css)$/,
-				exclude: '/node_modules/',
+				exclude: /node_modules/,
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
@@ -46,7 +47,7 @@ const sharedConfig = {
 			name: 'main.css',
 			chunkFilename: '[id].css'
 		}),
-        new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin()
 
 	]
 }

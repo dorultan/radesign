@@ -2,27 +2,22 @@ const path = require('path');
 const webpack = require('webpack');
 const sharedConfig = require('./webpack.config.shared');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const LoadablePlugin = require('@loadable/webpack-plugin');
 
 const clientConfig = {
 
 	name: 'client',
 	mode: sharedConfig.mode,
-	entry: ['babel-polyfill', './app/index.js'],
+	entry: ['./app/index.js'],
 	output: {
-		path: sharedConfig.path,
+		path: sharedConfig.output.path,
 		filename: 'bundle.js',
-		publicPath: sharedConfig.publicPath
+		publicPath: sharedConfig.output.publicPath
 	},
 	watch: process.NODE_ENV === 'production' ? false : true,
 	watchOptions: {
 	    aggregateTimeout: 300,
 	    poll: 1000
-	},
-
-	resolve: {
-		alias: {
-			Images: path.resolve(process.cwd(), './app/images/')
-		}
 	},
 	module: {
 		rules: sharedConfig.module.rules
@@ -36,6 +31,7 @@ const clientConfig = {
 			name: 'main.css',
 			chunkFilename: '[id].css'
 		}),
+		new LoadablePlugin(),
 		...sharedConfig.plugins
 	]
 };
