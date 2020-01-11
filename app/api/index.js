@@ -29,6 +29,11 @@ export const Login = (username, password) => {
   })
 }
 
+export const ReorderProject = (uid, index) => {
+
+	return axios.put('/api/projects/reorder', {uid, index});
+}
+
 export const CreateProject = (values) => {
   const formData = new FormData();
   formData.append('image', values.image);

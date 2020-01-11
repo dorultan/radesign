@@ -36,8 +36,8 @@ const renderHtml = (html, content, INIT_DATA, extractor) => {
 		<body>
 		<div id="root">${html}</div>
 
+			${extractor.getScriptTags()}
 		<script>const INIT_DATA = ${JSON.stringify(INIT_DATA)};</script>
-		${extractor.getScriptTags()}
 		</body>
 	 </html>
 	`

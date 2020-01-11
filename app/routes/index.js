@@ -13,9 +13,9 @@ import loadable from '@loadable/component';
 const Home = loadable(() => import('../containers/home.container'));
 const Login = loadable(() => import('../containers/login.container'));
 const DashboardContainer = loadable(() => import('../containers/dashboard.container'));
-const Project = loadable(() => {import('../containers/project.container')});
+const Project = loadable(() => import('../containers/project.container'));
 const Projects = loadable(() => import('../containers/projects.container'));
-const Galery = loadable(() => {import('../containers/galery.container')});
+const Galery = loadable(() => import('../containers/galery.container'));
 const ProjectView = loadable(() => import('../containers/projectView.container'));
 const InfoComponent = loadable(() => import('../components/info.component'));
 

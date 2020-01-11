@@ -9,6 +9,7 @@ export const GET_USER = "GET_USER";
 export const LOG_OUT = "LOG_OUT";
 // =========================================
 export const CREATE_PROJECT = "CREATE_PROJECT";
+export const REORDER_PROJECT = "REORDER_PROJECT";
 export const CREATE_PROJECT_ERROR = "CREATE_PROJECT_ERROR";
 export const DELETE_PROJECT = "DELETE_PROJECT";
 export const UPDATE_PROJECT = "UPDATE_PROJECT";

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchProjects, deleteProject} from '../actions';
+import {fetchProjects, deleteProject, reorderProject} from '../actions';
 import ProjectsComponent from '../components/projects.component';
+import {reorder} from 'react-reorder';
 
 class Projects extends Component {
   constructor(props) {
@@ -10,33 +11,25 @@ class Projects extends Component {
     this.state = {
       grid: null
     }
-
-    this.createGrid = this.createGrid.bind(this);
+    this.onReorder = this.onReorder.bind(this);
+    this.state = {
+      orderedItems: null
+    }
   }
 
-  createGrid() {
-    let grid = [[], [], []];
-
-    this.props.projects.forEach((project, idx) => {
-
-      if(grid[idx]) {
-        grid[idx].push(project);
-      }
-      else {
-        grid[idx % 3].push(project);
-      }
+  onReorder(event, previousIndex, nextIndex, fromId, toId) {
+    this.setState({
+      orderedItems: reorder(this.state.orderedItems, previousIndex, nextIndex)
     })
-
-    return grid;
+    console.log(previousIndex, nextIndex)
+    this.props.reorderProject(this.props.projects[previousIndex].uid, nextIndex);
   }
 
   componentDidUpdate() {
-    let grid;
 
-    if(this.props.projects && !this.state.grid || this.state.grid && this.state.grid.flat().length !== this.props.projects.length) {
-      grid = this.createGrid();
+    if(this.props.projects && !this.state.orderedItems || this.props.projects.length !== this.state.orderedItems.length) {
       this.setState({
-        grid: grid
+        orderedItems: this.props.projects
       })
 
     }
@@ -48,13 +41,13 @@ class Projects extends Component {
 
   render() {
 
-    if(this.state.grid === null) {
+    if(this.state.orderedItems === null) {
       return (
         <h1>Loading projects ...</h1>
       )
     }
 
-    else if(!this.state.grid.length) {
+    else if(!this.state.orderedItems.length) {
       return (
         <h1>Didn't find any projects.</h1>
       )
@@ -62,7 +55,7 @@ class Projects extends Component {
 
     else {
       return (
-        <ProjectsComponent {...this.props} grid={this.state.grid}/>
+        <ProjectsComponent {...this.props} orderedItems={this.state.orderedItems} onReorder={this.onReorder}/>
       )
     }
   }
@@ -72,7 +65,8 @@ const bindActionCreatorsToProps = (dispatch) => {
 
   return bindActionCreators({
     fetchProjects,
-    deleteProject
+    deleteProject,
+    reorderProject
   }, dispatch)
 
 }

@@ -31,6 +31,16 @@ let ProjectComponent = (props) => {
   )
 }
 
+const InputNumberField = (props) => {
+
+  return (
+    <div className="input__wrapper">
+     <input type="number" placeholder={props.placeholder} {...props.input}/>
+     {props.touched && props.error && <span className="error">{props.error}</span>}
+    </div>
+  )
+}
+
 const InputTextField = (props) => {
 
   return (
@@ -57,6 +67,7 @@ const validate = (values) => {
   if(!values.name) {
       errors.name = message;
   }
+
 
   if(!values.description) {
       errors.description = message;

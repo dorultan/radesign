@@ -70,7 +70,6 @@ class Project extends Component {
   }
 
   render() {
-
     if(this.shouldReceiveInitialData() && !this.props.initialData) {
       return (
         <h2>Loading data ...</h2>

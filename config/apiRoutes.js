@@ -63,6 +63,7 @@ const initApiRoutes = (app) => {
 	app.put('/api/projects/galery/add', projectsController.addImage);
 	app.put('/api/projects/galery/remove', projectsController.removeImage);
 	app.delete('/api/projects', projectsController.delete);
+	app.put('/api/projects/reorder', projectsController.reOrder);
 	// ============================================================
 	app.get('/api/uploads/:imagePath', (req, res) => {
 		const params = req.params;

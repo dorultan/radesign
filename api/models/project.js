@@ -44,7 +44,10 @@ const Project = {
     type: String,
     required: true
   },
-
+  index: {
+    type: Number,
+    required: false
+  },
   uid: {
     type: String,
     required: true
@@ -53,4 +56,5 @@ const Project = {
 
 const ProjectSchema = new Schema(Project);
 
+ProjectSchema.index({index: 1});
 export default mongodb.model('project', ProjectSchema);

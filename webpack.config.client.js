@@ -12,7 +12,7 @@ const clientConfig = {
 	output: {
 		path: sharedConfig.output.path,
 		filename: 'bundle.js',
-		publicPath: sharedConfig.output.publicPath
+		publicPath: sharedConfig.output.publicPath || '/'
 	},
 	watch: process.NODE_ENV === 'production' ? false : true,
 	watchOptions: {

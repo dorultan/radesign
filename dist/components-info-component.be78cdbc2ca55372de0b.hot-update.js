@@ -1,1 +1,0 @@
-webpackHotUpdate("components-info-component",[])

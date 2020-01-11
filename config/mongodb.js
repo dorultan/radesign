@@ -3,7 +3,7 @@ import mongooseGridfs from 'mongoose-gridfs';
 
 
 const opts = {
-	autoIndex: false
+	autoIndex: true
 }
 
 const connection = mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}/${process.env.DB_NAME}`, opts)

@@ -8,12 +8,12 @@ import {
 	UPDATE_PROJECT, DELETE_PROJECT, FETCH_PROJECT, FETCH_PROJECTS,
 	INITIALIZE_PROJECT_FORM, REMOVE_INITIAL_DATA,
 	ADD_IMAGE_TO_GALLERY, REMOVE_IMAGE_FROM_GALLERY,
-	GET_USER
+	GET_USER, REORDER_PROJECT
 } from './types';
 
 import { Login, IsAuthenticated, CreateProject, FetchProjects,
 DeleteProject, FetchProject, UpdateProject, UpdateProjectWithImage,
-AddImageToGallery, RemoveImageFromGallery, GetUser } from '../api';
+AddImageToGallery, RemoveImageFromGallery, GetUser, ReorderProject } from '../api';
 
 export const initializeProjectForm = (uid) => {
 	return (dispatch) => {
@@ -50,6 +50,15 @@ export const removeInitialData = () => {
 			type: REMOVE_INITIAL_DATA,
 			payload: null
 		})
+	}
+}
+
+export const reorderProject = (uid, index) => {
+	const payload = ReorderProject(uid, index);
+	return {
+		type: REORDER_PROJECT,
+		payload: payload
+
 	}
 }
 

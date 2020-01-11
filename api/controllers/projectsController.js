@@ -74,7 +74,42 @@ const projectsController = {
       next();
     }
 
+  },
 
+  reOrder(req, res) {
+    const uid = req.body.uid;
+    const newIndex = req.body.index;
+
+    Project
+    .findOne({uid: uid})
+    .exec((err, data) => {
+
+      if(err) {
+        return res.status(404).json(err);
+      }
+
+      Project
+      .findOneAndUpdate({index: newIndex}, {index: data.index})
+      .exec((err, data) => {
+
+
+        if(err) {
+
+          return res.status(404).json(err);
+        }
+
+        Project.findOneAndUpdate({uid: uid}, {index: newIndex}, {new: true})
+
+        .exec((err, data) => {
+
+          if(err) {
+            return res.status(404).json(err);
+          }
+
+          return res.status(200).json(data)
+        })
+      })
+    })
   },
 
   getAll(req, res) {
@@ -82,7 +117,7 @@ const projectsController = {
     Project
 
     .find()
-
+    .sort({index: 1})
     .exec((err, data) => {
 
       if(err) {
@@ -167,21 +202,27 @@ const projectsController = {
 			}
 
       if(file) {
-        Project
 
-        .create({
-          imageUrl: file.location,
-          description: req.body.description,
-          name: req.body.name,
-          uid: replaceSpaceFromString(req.body.name),
-          tag: req.body.tag,
-          color: req.body.color
-        }, (err, data) => {
-          if(err) {
-            return res.status(404).json({message: err.message});
-          }
+        Project.countDocuments({}, function(err, count) {
 
-            return res.status(200).json(data);
+            Project
+
+            .create({
+              imageUrl: file.location,
+              description: req.body.description,
+              name: req.body.name,
+              uid: replaceSpaceFromString(req.body.name),
+              tag: req.body.tag,
+              color: req.body.color,
+              index: count
+            }, (err, data) => {
+              if(err) {
+                return res.status(404).json({message: err.message});
+              }
+
+                return res.status(200).json(data);
+            })
+
         })
       } else {
         res.status(500).json({message: "Can't upload image."})
