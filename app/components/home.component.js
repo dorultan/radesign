@@ -69,7 +69,7 @@ class HomeComponent extends Component {
       mousewheelForceToAxis: true,
       mousewheelControl: true,
       freeMode: true,
-      touchRatio: 10
+      touchRatio: 1
     }
 
     config.direction = "horizontal";
