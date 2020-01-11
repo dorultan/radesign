@@ -62,26 +62,20 @@ class HomeComponent extends Component {
   componentDidMount() {
     const config = {
       mousewheel: true,
-      simulateTouch: true,
       speed: 300,
       touch: true,
       slidesPerView: 1,
-      delay: 0,
-      keyboard: true
-
+      keyboard: true,
+      mousewheelForceToAxis: true,
+      mousewheelControl: true,
+      freeMode: true,
+      touchRatio: 10
     }
 
     config.direction = "horizontal";
     this.horizontalSwiper = new Swiper(this.state.horizontal_container.current, config);
     config.centeredSlides = true;
-    this.trackerSwiper = new Swiper(this.state.tracker_container.current, {
-      speed: 300,
-      initialSlide: 0,
-      onlyExternal: true,
-      centeredSlides: true,
-      slidesPerView: 1,
-      direction: 'horizontal'
-    });
+    this.trackerSwiper = new Swiper(this.state.tracker_container.current);
     config.direction = "vertical";
     this.verticalSwiper = new Swiper(this.state.vertical_container.current, config)
 
@@ -96,9 +90,17 @@ class HomeComponent extends Component {
     })
     // Init
 
-    // window.addEventListener('mousewheel', (e) => {
-    //   console.log(e)
-    // })
+    window.addEventListener('mousewheel', (e) => {
+
+    })
+    let timer;
+    this.verticalSwiper.on('setTransition', function(e) {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() =>{
+          this.slideTo(this.activeIndex)
+      }, 50)
+    })
+
     this.trackerSwiper.on('slideChange', (idx) => {
       this.toggleSideMenus(idx)
     })
