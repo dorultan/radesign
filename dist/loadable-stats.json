@@ -2,51 +2,58 @@
   "errors": [],
   "warnings": [],
   "version": "4.41.2",
-  "hash": "36ec2c611d704a6fba6f",
+  "hash": "9b6c95396868cbe21a5c",
   "publicPath": "/",
   "outputPath": "Z:\\projects\\raul-portfolio\\dist",
   "assetsByChunkName": {
     "components-info-component": [
       "components-info-component.css",
       "components-info-component.css",
-      "components-info-component.bundle.js"
+      "components-info-component.bundle.js",
+      "components-info-component.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-dashboard-container": [
       "containers-dashboard-container.css",
       "containers-dashboard-container.css",
-      "containers-dashboard-container.bundle.js"
+      "containers-dashboard-container.bundle.js",
+      "containers-dashboard-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1": "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
     "containers-galery-container": [
       "containers-galery-container.css",
       "containers-galery-container.css",
-      "containers-galery-container.bundle.js"
+      "containers-galery-container.bundle.js",
+      "containers-galery-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-home-container": [
       "containers-home-container.css",
       "containers-home-container.css",
-      "containers-home-container.bundle.js"
+      "containers-home-container.bundle.js",
+      "containers-home-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-login-container": [
       "containers-login-container.css",
       "containers-login-container.css",
-      "containers-login-container.bundle.js"
+      "containers-login-container.bundle.js",
+      "containers-login-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-project-container": [
       "containers-project-container.css",
       "containers-project-container.css",
-      "containers-project-container.bundle.js"
+      "containers-project-container.bundle.js",
+      "containers-project-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-projectView-container": [
       "containers-projectView-container.css",
       "containers-projectView-container.css",
-      "containers-projectView-container.bundle.js"
+      "containers-projectView-container.bundle.js",
+      "containers-projectView-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "containers-projects-container": [
       "containers-projects-container.css",
       "containers-projects-container.css",
       "containers-projects-container.bundle.js",
-      "containers-projects-container.877256f9f695b1f8c6b1.hot-update.js"
+      "containers-projects-container.b38cf7a39adab8efb61f.hot-update.js"
     ],
     "main": "bundle.js",
     "vendors~components-info-component~containers-dashboard-container~containers-galery-container~contain~104871a1": "vendors~components-info-component~containers-dashboard-container~containers-galery-container~contain~104871a1.bundle.js",
@@ -66,8 +73,8 @@
       "emitted": false
     },
     {
-      "name": "877256f9f695b1f8c6b1.hot-update.json",
-      "size": 71,
+      "name": "b38cf7a39adab8efb61f.hot-update.json",
+      "size": 320,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -89,8 +96,23 @@
       "emitted": false
     },
     {
+      "name": "components-info-component.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 875,
+      "chunks": [
+        "components-info-component"
+      ],
+      "chunkNames": [
+        "components-info-component"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "components-info-component.bundle.js",
-      "size": 21487,
+      "size": 21683,
       "chunks": [
         "components-info-component"
       ],
@@ -112,6 +134,21 @@
         "components-info-component"
       ],
       "info": {},
+      "emitted": false
+    },
+    {
+      "name": "containers-dashboard-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 1363,
+      "chunks": [
+        "containers-dashboard-container"
+      ],
+      "chunkNames": [
+        "containers-dashboard-container"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
@@ -150,6 +187,21 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1"
       ],
       "info": {},
+      "emitted": true
+    },
+    {
+      "name": "containers-galery-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 444,
+      "chunks": [
+        "containers-galery-container"
+      ],
+      "chunkNames": [
+        "containers-galery-container"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
@@ -179,8 +231,23 @@
       "emitted": false
     },
     {
+      "name": "containers-home-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 1273,
+      "chunks": [
+        "containers-home-container"
+      ],
+      "chunkNames": [
+        "containers-home-container"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "containers-home-container.bundle.js",
-      "size": 42645,
+      "size": 42862,
       "chunks": [
         "containers-home-container"
       ],
@@ -192,7 +259,7 @@
     },
     {
       "name": "containers-home-container.css",
-      "size": 17626,
+      "size": 17800,
       "chunks": [
         "containers-home-container",
         "containers-home-container"
@@ -202,6 +269,21 @@
         "containers-home-container"
       ],
       "info": {},
+      "emitted": false
+    },
+    {
+      "name": "containers-login-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 438,
+      "chunks": [
+        "containers-login-container"
+      ],
+      "chunkNames": [
+        "containers-login-container"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
@@ -231,6 +313,21 @@
       "emitted": false
     },
     {
+      "name": "containers-project-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 858,
+      "chunks": [
+        "containers-project-container"
+      ],
+      "chunkNames": [
+        "containers-project-container"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "containers-project-container.bundle.js",
       "size": 34541,
       "chunks": [
@@ -254,6 +351,21 @@
         "containers-project-container"
       ],
       "info": {},
+      "emitted": false
+    },
+    {
+      "name": "containers-projectView-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 1315,
+      "chunks": [
+        "containers-projectView-container"
+      ],
+      "chunkNames": [
+        "containers-projectView-container"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
@@ -283,8 +395,8 @@
       "emitted": false
     },
     {
-      "name": "containers-projects-container.877256f9f695b1f8c6b1.hot-update.js",
-      "size": 52,
+      "name": "containers-projects-container.b38cf7a39adab8efb61f.hot-update.js",
+      "size": 506,
       "chunks": [
         "containers-projects-container"
       ],
@@ -333,7 +445,7 @@
         "vendors~components-info-component~containers-dashboard-container~containers-galery-container~contain~104871a1"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "vendors~components-info-component~containers-home-container.bundle.js",
@@ -345,7 +457,7 @@
         "vendors~components-info-component~containers-home-container"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "vendors~containers-dashboard-container.bundle.js",
@@ -357,7 +469,7 @@
         "vendors~containers-dashboard-container"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "vendors~containers-dashboard-container~containers-galery-container~containers-home-container~contain~951f9ebd.bundle.js",
@@ -369,7 +481,7 @@
         "vendors~containers-dashboard-container~containers-galery-container~containers-home-container~contain~951f9ebd"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "vendors~containers-home-container.bundle.js",
@@ -381,7 +493,7 @@
         "vendors~containers-home-container"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     },
     {
       "name": "vendors~containers-projects-container.bundle.js",
@@ -393,7 +505,7 @@
         "vendors~containers-projects-container"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true
     }
   ],
   "filteredAssets": 0,
@@ -437,7 +549,8 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
         "containers-home-container.css",
         "containers-home-container.css",
-        "containers-home-container.bundle.js"
+        "containers-home-container.bundle.js",
+        "containers-home-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -453,7 +566,8 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
         "containers-login-container.css",
         "containers-login-container.css",
-        "containers-login-container.bundle.js"
+        "containers-login-container.bundle.js",
+        "containers-login-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -473,7 +587,8 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
         "containers-dashboard-container.css",
         "containers-dashboard-container.css",
-        "containers-dashboard-container.bundle.js"
+        "containers-dashboard-container.bundle.js",
+        "containers-dashboard-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -491,7 +606,8 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
         "containers-project-container.css",
         "containers-project-container.css",
-        "containers-project-container.bundle.js"
+        "containers-project-container.bundle.js",
+        "containers-project-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -510,7 +626,7 @@
         "containers-projects-container.css",
         "containers-projects-container.css",
         "containers-projects-container.bundle.js",
-        "containers-projects-container.877256f9f695b1f8c6b1.hot-update.js"
+        "containers-projects-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -528,7 +644,8 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
         "containers-galery-container.css",
         "containers-galery-container.css",
-        "containers-galery-container.bundle.js"
+        "containers-galery-container.bundle.js",
+        "containers-galery-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -546,7 +663,8 @@
         "containers-dashboard-container~containers-galery-container~containers-home-container~containers-logi~f25770e1.bundle.js",
         "containers-projectView-container.css",
         "containers-projectView-container.css",
-        "containers-projectView-container.bundle.js"
+        "containers-projectView-container.bundle.js",
+        "containers-projectView-container.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -562,7 +680,8 @@
         "vendors~components-info-component~containers-home-container.bundle.js",
         "components-info-component.css",
         "components-info-component.css",
-        "components-info-component.bundle.js"
+        "components-info-component.bundle.js",
+        "components-info-component.b38cf7a39adab8efb61f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -616,7 +735,7 @@
         }
       },
       "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/projects.component.less"
+      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/home.less"
     }
   ]
 }

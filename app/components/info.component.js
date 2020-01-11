@@ -24,21 +24,27 @@ const InfoComponent = (props) => {
        </div>
        <div className="info__page-about column">
          <h4>About</h4>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo metus et leo maximus porttitor. Donec fermentum finibus ipsum sed elementum. Maecenas a iaculis nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ornare ipsum consequat arcu venenatis commodo. Cras id tellus et lorem porta tempus. Aliquam at nunc odio. Sed ut dignissim enim, ornare suscipit tortor. Phasellus in turpis at tellus porta efficitur. Sed urna libero, ultricies id purus vel, efficitur iaculis nunc. Vestibulum commodo, odio in sodales placerat, odio dolor dapibus turpis, sed accumsan mauris leo tristique orci.</p>
+         <p>Hi, my name is Raul Cirt and i am a graphic designer, illustrator and social media marketer. I
+live in Romania (yes… Dracula) and no…. We are not gypsies :)))). I am proficient in brand
+identity which includes everything from logo design, business card design, stationary printing
+design, tshirt design, flyers, billboards, social media banners, website layouts and the list goes
+on. I also do illustrations that can be used on different mediums eg. Book covers, posters,
+album covers and so on. I like drawing, swimming, playing the guitar(not good at it but i like it)
+and most of all, i love what i do for a living,i can easily say my work is based on pure passion for
+problem solving and beautiful visuals custom made to elevate startups and medium size
+companies to the next level by making their brand stand out from the competition and look good
+at the same time!</p>
        </div>
        <div className="info__page-experience column">
          <h4>Experience</h4>
-
+         <p>Experience - 1 year at an online coffe shop as a graphic designer and social media
+marketer, 2 and a half years at a local prin shop as the main graphic designer where i
+created and prepared different materials for print on different mediums, 6 months at a
+national creative agency as the main graphic designer, 4 months and still counting at
+multiple companies as the main graphic designer social media and email marketing
+specialist</p>
        </div>
        <div className="info__page-clients column">
-         <h4>Clients</h4>
-         <ul>
-           <li>Name</li>
-           <li>Name</li>
-           <li>Name</li>
-           <li>Name</li>
-           <li>Name</li>
-         </ul>
        </div>
      </section>
     </main>

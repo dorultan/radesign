@@ -8,7 +8,7 @@ import hexToRgba from 'hex-to-rgba';
 import Navbar from './navbar.component';
 import logo from '../images/header.svg';
 import './home.less';
-
+console.log('something')
 class HomeComponent extends Component {
   constructor(props) {
     super(props)
@@ -139,7 +139,10 @@ class HomeComponent extends Component {
             <div className="swiper-wrapper">
               <header className="swiper-slide home-header">
                 <div className="home__header__intro-wrapper">
-                  <h1 className="intro-heading">Suspendisse scelerisque nunc eu justo sollicitudin, vel ornare urna tincidunt. In quis quam eget est aliquam porttitor.</h1>
+                  <h1 className="intro-heading">
+                    I'm Raul<br/>
+                  I <span>design</span> and <span>research</span> your business ideas.
+                  </h1>
                 </div>
                 <footer className="home__header__intro-footer">
                   <ul className="footer-list">
