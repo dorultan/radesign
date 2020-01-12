@@ -2,14 +2,15 @@
   "errors": [],
   "warnings": [],
   "version": "4.41.2",
-  "hash": "c1a02ca3aec90a65db94",
+  "hash": "20bc589966d1c7c35f6c",
   "publicPath": "/",
   "outputPath": "Z:\\projects\\raul-portfolio\\dist",
   "assetsByChunkName": {
     "components-info-component": [
       "components-info-component.css",
       "components-info-component.css",
-      "components-info-component.bundle.js"
+      "components-info-component.bundle.js",
+      "components-info-component.b6cebccba4ae33cda2c0.hot-update.js"
     ],
     "containers-dashboard-container": [
       "containers-dashboard-container.css",
@@ -65,6 +66,17 @@
       "emitted": false
     },
     {
+      "name": "b6cebccba4ae33cda2c0.hot-update.json",
+      "size": 67,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "bundle.js",
       "size": 2768566,
       "chunks": [
@@ -77,8 +89,23 @@
       "emitted": false
     },
     {
+      "name": "components-info-component.b6cebccba4ae33cda2c0.hot-update.js",
+      "size": 6900,
+      "chunks": [
+        "components-info-component"
+      ],
+      "chunkNames": [
+        "components-info-component"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "components-info-component.bundle.js",
-      "size": 21683,
+      "size": 22213,
       "chunks": [
         "components-info-component"
       ],
@@ -168,7 +195,7 @@
     },
     {
       "name": "containers-home-container.bundle.js",
-      "size": 42993,
+      "size": 43116,
       "chunks": [
         "containers-home-container"
       ],
@@ -180,7 +207,7 @@
     },
     {
       "name": "containers-home-container.css",
-      "size": 17800,
+      "size": 18067,
       "chunks": [
         "containers-home-container",
         "containers-home-container"
@@ -534,7 +561,8 @@
         "vendors~components-info-component~containers-home-container.bundle.js",
         "components-info-component.css",
         "components-info-component.css",
-        "components-info-component.bundle.js"
+        "components-info-component.bundle.js",
+        "components-info-component.b6cebccba4ae33cda2c0.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -547,552 +575,5 @@
       "debug": false
     }
   },
-  "children": [
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/breadCrumbsComponent.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/dashboard.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/dashboardNavbar.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/fileField.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/galery.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/home.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/info.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/loading.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/login.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/navbar.component.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/project.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/projectView.less"
-    },
-    {
-      "errors": [],
-      "warnings": [],
-      "publicPath": "/",
-      "outputPath": "Z:\\projects\\raul-portfolio\\dist",
-      "assetsByChunkName": {},
-      "assets": [],
-      "filteredAssets": 0,
-      "entrypoints": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "namedChunkGroups": {
-        "mini-css-extract-plugin": {
-          "chunks": [
-            "mini-css-extract-plugin"
-          ],
-          "assets": [
-            "*"
-          ],
-          "children": {},
-          "childAssets": {}
-        }
-      },
-      "logging": {
-        "webpack.buildChunkGraph.visitModules": {
-          "entries": [],
-          "filteredEntries": 2,
-          "debug": false
-        }
-      },
-      "children": [],
-      "name": "mini-css-extract-plugin node_modules/css-loader/index.js!node_modules/less-loader/dist/cjs.js!app/components/projects.component.less"
-    }
-  ]
+  "children": []
 }

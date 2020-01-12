@@ -45,6 +45,13 @@ multiple companies as the main graphic designer social media and email marketing
 specialist</p>
        </div>
        <div className="info__page-clients column">
+         <h4>Skills</h4>
+         <ul>
+           <li>Adobe illustrator.</li>
+           <li>Corel draw.</li>
+           <li>Adobe photoshop.</li>
+           <li>Adobe afterefects.</li>
+         </ul>
        </div>
      </section>
     </main>

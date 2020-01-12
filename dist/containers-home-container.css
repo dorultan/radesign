@@ -658,7 +658,7 @@
   color: #fff;
   text-shadow: 1px 1px 1px #222;
   transition: all 0.5s;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1.12;
 }
 .home .home-slides .swiper-container .swiper-wrapper .home-header h1.intro-heading span {
@@ -667,7 +667,16 @@
 }
 @media only screen and (min-width: 768px ) {
   .home .home-slides .swiper-container .swiper-wrapper .home-header h1.intro-heading {
-    font-size: 4rem !important;
+    font-size: 2.5rem !important;
+  }
+}
+.home .home-slides .swiper-container .swiper-wrapper .home-header p.intro-p {
+  max-width: 700px;
+  color: #fff;
+}
+@media only screen and (min-width: 768px ) {
+  .home .home-slides .swiper-container .swiper-wrapper .home-header p.intro-p {
+    font-size: 17px;
   }
 }
 .home .home-slides .swiper-container .swiper-wrapper .home-header .home__header__intro-footer {

@@ -142,9 +142,11 @@ class HomeComponent extends Component {
               <header className="swiper-slide home-header">
                 <div className="home__header__intro-wrapper">
                   <h1 className="intro-heading">
-                    I'm Raul<br/>
-                  I <span>design</span> and <span>research</span> your business ideas.
+                    IS YOUR COMPANY ANY DIFFERENT FROM THE OTHERS IN YOUR NICHE ?
                   </h1>
+                  <p className="intro-p">
+                    If you have eye catching visuals based on a logo and a fixed color palette that both work together to give your potential clients something to relate to and make your business stand out , then YES! If not…..well, that’s why we’re here !
+                  </p>
                 </div>
                 <footer className="home__header__intro-footer">
                   <ul className="footer-list">
