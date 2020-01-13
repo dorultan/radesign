@@ -17,9 +17,12 @@ const renderHtml = (html, content, INIT_DATA, extractor) => {
 	 <!DOCTYPE html>
 	 <html>
 		<head>
-			<title>${content}</title>
+			<title>Radesign</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+			<meta property="og:description" content"If you have eye catching visuals based on a logo and a fixed color palette that both work together to give your potential clients something to relate to and make your business stand out , then YES! If not…..well, that’s why we’re here !"/>
+			<meta property="og:image" content="https://radesign.s3.eu-west-2.amazonaws.com/meta/radesign-card.jpg"/>
+			<meta name="description" content="If you have eye catching visuals based on a logo and a fixed color palette that both work together to give your potential clients something to relate to and make your business stand out , then YES! If not…..well, that’s why we’re here !"/>
+			<link rel="shortcut icon" href="https://radesign.s3.eu-west-2.amazonaws.com/meta/favicon.ico" type="image/x-icon">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css"/>
 			<link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|PT+Sans" rel="stylesheet">
 			<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
