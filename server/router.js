@@ -17,7 +17,7 @@ const renderHtml = (html, content, INIT_DATA, extractor) => {
 	 <!DOCTYPE html>
 	 <html>
 		<head>
-			<title>Radesign</title>
+			<title>Radesign - Let's brand you up !</title>
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			<meta property="og:description" content"If you have eye catching visuals based on a logo and a fixed color palette that both work together to give your potential clients something to relate to and make your business stand out , then YES! If not…..well, that’s why we’re here !"/>
 			<meta property="og:image" content="https://radesign.s3.eu-west-2.amazonaws.com/meta/radesign-card.jpg"/>
